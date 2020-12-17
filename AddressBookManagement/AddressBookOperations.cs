@@ -67,12 +67,16 @@ namespace AddressBookManagement
             }
             else if (addressBookContainer.ContainsKey(key) == true)
             {
-                //addressBookContainer.Add(key, addressBookVariables);
                 addressBookContainer[key] = addressBookVariables;
                 Console.WriteLine("Values Updated");
             }
             return addressBookContainer;
+        }
 
+        public void DeleteAddress(string key)
+        {
+                addressBookContainer.Remove(key);
+                Console.WriteLine(key + " Deleted Successfully");
         }
     }
 }
