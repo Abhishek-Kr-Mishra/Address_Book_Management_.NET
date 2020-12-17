@@ -51,5 +51,28 @@ namespace AddressBookManagement
             }
         }
 
+        public bool IsContains(string key)
+        {
+            bool status=false;
+            if (addressBookContainer.ContainsKey(key) == true)
+                status = true;
+
+            return status;
+        }
+        public Dictionary<string, AddressBookContactVariables> UpdateValue(string key, AddressBookContactVariables addressBookVariables)
+        {
+            if (addressBookContainer.ContainsKey(key) == false)
+            {
+                Console.WriteLine("Key Not Found");
+            }
+            else if (addressBookContainer.ContainsKey(key) == true)
+            {
+                //addressBookContainer.Add(key, addressBookVariables);
+                addressBookContainer[key] = addressBookVariables;
+                Console.WriteLine("Values Updated");
+            }
+            return addressBookContainer;
+
+        }
     }
 }
