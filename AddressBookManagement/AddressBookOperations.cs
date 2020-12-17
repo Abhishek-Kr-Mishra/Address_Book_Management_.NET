@@ -6,6 +6,12 @@ namespace AddressBookManagement
 {
     class AddressBookOperations
     {
+        Dictionary<string, AddressBookContactVariables> addressBookContainer = new Dictionary<string, AddressBookContactVariables>();
+        public Dictionary<string, AddressBookContactVariables> Save(string email, AddressBookContactVariables addressBookVariables)
+        {
+            addressBookContainer.Add(email, addressBookVariables);
+            return addressBookContainer;
+        }
         public AddressBookContactVariables NewAddressBook()
         {
             AddressBookContactVariables addressBookContactVariables = new AddressBookContactVariables();
@@ -34,6 +40,15 @@ namespace AddressBookManagement
             addressBookContactVariables.SetZip(zip);
             addressBookContactVariables.SetPhone(phone);
             return addressBookContactVariables;
+        }
+
+        public void printAllDetails()
+        {
+            foreach (KeyValuePair<string, AddressBookContactVariables> keyValuePair in addressBookContainer)
+            {
+                Console.WriteLine("Key = {0}, Value = {1}",
+                                  keyValuePair.Key, keyValuePair.Value);
+            }
         }
 
     }
