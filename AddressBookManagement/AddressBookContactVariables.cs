@@ -15,7 +15,7 @@ namespace AddressBookManagement
         private int zip;
         private long phone;
 
-        public String GetfName()
+        public String GetFname()
         {
             return fName;
         }

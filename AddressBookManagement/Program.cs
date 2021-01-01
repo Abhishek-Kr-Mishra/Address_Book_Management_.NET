@@ -25,11 +25,18 @@ namespace AddressBookManagement
                 {
                     case 1:
                         addressBookContactVariables = addressBookOperation.NewAddressBook();
-                        addressBookOperation.Save(addressBookContactVariables.GetEmail(), addressBookContactVariables);
+                        if (addressBookOperation.IsContains(addressBookContactVariables.GetFname()))
+                        {
+                            Console.WriteLine("First Name Can't Be Duplicate....Enter Different Name");
+                        }
+                        else
+                        {
+                            addressBookOperation.Save(addressBookContactVariables.GetFname(), addressBookContactVariables);
+                        }
                         break;
 
                     case 2:
-                        addressBookOperation.printAllDetails();
+                        addressBookOperation.PrintAllDetails();
                         break;
 
                    case 3:

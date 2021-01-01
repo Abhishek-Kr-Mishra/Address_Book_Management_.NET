@@ -7,9 +7,9 @@ namespace AddressBookManagement
     class AddressBookOperations
     {
         Dictionary<string, AddressBookContactVariables> addressBookContainer = new Dictionary<string, AddressBookContactVariables>();
-        public Dictionary<string, AddressBookContactVariables> Save(string email, AddressBookContactVariables addressBookVariables)
+        public Dictionary<string, AddressBookContactVariables> Save(string fname, AddressBookContactVariables addressBookVariables)
         {
-            addressBookContainer.Add(email, addressBookVariables);
+            addressBookContainer.Add(fname, addressBookVariables);
             return addressBookContainer;
         }
         public AddressBookContactVariables NewAddressBook()
@@ -42,7 +42,7 @@ namespace AddressBookManagement
             return addressBookContactVariables;
         }
 
-        public void printAllDetails()
+        public void PrintAllDetails()
         {
             foreach (KeyValuePair<string, AddressBookContactVariables> keyValuePair in addressBookContainer)
             {
