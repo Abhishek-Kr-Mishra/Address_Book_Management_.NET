@@ -35,6 +35,7 @@ namespace AddressBookManagement
                    case 3:
                         Console.WriteLine("Enter the email of contact which you want to update");
                         key = Console.ReadLine();
+
                         if (addressBookOperation.IsContains(key))
                         {
                             addressBookContactVariables = addressBookOperation.NewAddressBook();
