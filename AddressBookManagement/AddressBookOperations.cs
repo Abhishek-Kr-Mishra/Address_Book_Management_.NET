@@ -1,20 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace AddressBookManagement
 {
     class AddressBookOperations
     {
+        AddressBookContactVariables addressBookContactVariables;
         Dictionary<string, AddressBookContactVariables> addressBookContainer = new Dictionary<string, AddressBookContactVariables>();
         public Dictionary<string, AddressBookContactVariables> Save(string fname, AddressBookContactVariables addressBookVariables)
         {
             addressBookContainer.Add(fname, addressBookVariables);
             return addressBookContainer;
         }
+        public void HowManyAddressBoo()
+        {
+            Console.WriteLine("How Many Address Book you want to add ?");
+            int numberOfAddressBook = Convert.ToInt32(Console.ReadLine());
+        }
         public AddressBookContactVariables NewAddressBook()
         {
-            AddressBookContactVariables addressBookContactVariables = new AddressBookContactVariables();
             Console.WriteLine("Enter the First Name");
             string fName = Console.ReadLine();
             Console.WriteLine("Enter the Last Name");
@@ -31,14 +37,8 @@ namespace AddressBookManagement
             int zip = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine("Enter the Phone number");
             long phone = Convert.ToInt64(Console.ReadLine());
-            addressBookContactVariables.SetfName(fName);
-            addressBookContactVariables.SetlName(lName);
-            addressBookContactVariables.SetAddress(address);
-            addressBookContactVariables.SetCity(city);
-            addressBookContactVariables.SetState(state);
-            addressBookContactVariables.SetEmail(email);
-            addressBookContactVariables.SetZip(zip);
-            addressBookContactVariables.SetPhone(phone);
+            addressBookContactVariables = new AddressBookContactVariables(fName, lName, address, city, state, email, zip, phone);
+
             return addressBookContactVariables;
         }
 
@@ -47,13 +47,13 @@ namespace AddressBookManagement
             foreach (KeyValuePair<string, AddressBookContactVariables> keyValuePair in addressBookContainer)
             {
                 Console.WriteLine("Key = {0}, Value = {1}",
-                                  keyValuePair.Key, keyValuePair.Value);
+                                  keyValuePair.Key, keyValuePair.Value.ToString());
             }
         }
 
         public bool IsContains(string key)
         {
-            bool status=false;
+            bool status = false;
             if (addressBookContainer.ContainsKey(key) == true)
                 status = true;
 
@@ -72,11 +72,18 @@ namespace AddressBookManagement
             }
             return addressBookContainer;
         }
-
         public void DeleteAddress(string key)
         {
-                addressBookContainer.Remove(key);
-                Console.WriteLine(key + " Deleted Successfully");
+            addressBookContainer.Remove(key);
+            Console.WriteLine(key + " Deleted Successfully");
+        }
+        public void SearchByCity(string cityName)
+        {
+            List<AddressBookContactVariables> values = addressBookContainer.Values.ToList();
+            foreach (AddressBookContactVariables addressBookContactVariables in values.FindAll(e => (e.GetCity().Equals(cityName))))
+            {
+                Console.WriteLine(addressBookContactVariables.ToString());
+            }
         }
     }
 }

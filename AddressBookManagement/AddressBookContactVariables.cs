@@ -6,102 +6,115 @@ namespace AddressBookManagement
 {
     class AddressBookContactVariables
     {
-        private String fName;
-        private String lName;
-        private String Address;
-        private String city;
-        private String state;
-        private String email;
+        private string fName;
+        private string lName;
+        private string address;
+        private string city;
+        private string state;
+        private string email;
         private int zip;
         private long phone;
+        public AddressBookContactVariables(string fname, string lname, string address, string city, string state, string email, int zip, long phone)
+        {
+            this.fName = fname;
+            this.lName = lname;
+            this.address = address;
+            this.city = city;
+            this.state = state;
+            this.email = email;
+            this.zip = zip;
+            this.phone = phone;
+        }
+        public AddressBookContactVariables()
+        { }
 
-        public String GetFname()
+        public string GetFname()
         {
             return fName;
         }
 
-        public void SetfName(String fName)
-        {
-            this.fName = fName;
-        }
+        //public void SetfName(string fName)
+        //{
+        //    this.fName = fName;
+        //}
 
-        public String SetlName()
-        {
-            return lName;
-        }
+        //public string SetlName()
+        //{
+        //    return lName;
+        //}
 
-        public void SetlName(String lName)
-        {
-            this.lName = lName;
-        }
+        //public void SetlName(string lName)
+        //{
+        //    this.lName = lName;
+        //}
 
-        public String GetAddress()
-        {
-            return Address;
-        }
+        //public string GetAddress()
+        //{
+        //    return Address;
+        //}
 
-        public void SetAddress(String address)
-        {
-            Address = address;
-        }
+        //public void SetAddress(string address)
+        //{
+        //    Address = address;
+        //}
 
-        public String GetCity()
+        public string GetCity()
         {
             return city;
         }
 
-        public void SetCity(String city)
-        {
-            this.city = city;
-        }
+        //public void SetCity(string city)
+        //{
+        //    this.city = city;
+        //}
 
-        public String GetState()
-        {
-            return state;
-        }
+        //public string GetState()
+        //{
+        //    return state;
+        //}
 
-        public void SetState(String state)
-        {
-            this.state = state;
-        }
+        //public void SetState(string state)
+        //{
+        //    this.state = state;
+        //}
 
-        public String GetEmail()
-        {
-            return email;
-        }
+        //public string GetEmail()
+        //{
+        //    return email;
+        //}
 
-        public void SetEmail(String email)
-        {
-            this.email = email;
-        }
+        //public void SetEmail(string email)
+        //{
+        //    this.email = email;
+        //}
 
-        public int GetZip()
-        {
-            return zip;
-        }
+        //public int GetZip()
+        //{
+        //    return zip;
+        //}
 
-        public void SetZip(int zip)
-        {
-            this.zip = zip;
-        }
+        //public void SetZip(int zip)
+        //{
+        //    this.zip = zip;
+        //}
 
-        public long GetPhone()
-        {
-            return phone;
-        }
+        //public long GetPhone()
+        //{
+        //    return phone;
+        //}
 
-        public void SetPhone(long phone)
-        {
-            this.phone = phone;
-        }
+        //public void SetPhone(long phone)
+        //{
+        //    this.phone = phone;
+        //}
 
         override
-        public String ToString()
+        public string ToString()
         {
             return "AddressBookContactVariables{" +
                     "fName='" + fName + '\'' +
                     ", lName='" + lName + '\'' +
-                    ", Address='" + Address + '\'' +
+                    ", Address='" + address + '\'' +
                     ", city='" + city + '\'' +
                     ", state='" + state + '\'' +
                     ", email=" + email + '\'' +

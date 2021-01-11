@@ -18,7 +18,8 @@ namespace AddressBookManagement
                 Console.WriteLine("2: To Print all From Address Dictionary");
                 Console.WriteLine("3: To Update the existing address");
                 Console.WriteLine("4: To Delete the existing address");
-                Console.WriteLine("5: Terminate the Program");
+                Console.WriteLine("5: Search Address By City Name");
+                Console.WriteLine("6: Terminate the Program");
 
                 int option = Convert.ToInt32(Console.ReadLine());
                 switch (option)
@@ -39,7 +40,7 @@ namespace AddressBookManagement
                         addressBookOperation.PrintAllDetails();
                         break;
 
-                   case 3:
+                    case 3:
                         Console.WriteLine("Enter the email of contact which you want to update");
                         key = Console.ReadLine();
 
@@ -66,8 +67,13 @@ namespace AddressBookManagement
                             Console.WriteLine("Given Key Not Found");
                         }
                         break;
-
                     case 5:
+                        Console.WriteLine("Enter city name to search Address");
+                        string searchCity = Console.ReadLine();
+                        addressBookOperation.SearchByCity(searchCity);
+                        break;
+
+                    case 6:
                         terminate = true;
                         break;
 
