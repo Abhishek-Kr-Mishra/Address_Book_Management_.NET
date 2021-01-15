@@ -98,6 +98,15 @@ namespace AddressBookManagement
                 Console.WriteLine("Name: "+ addressBookContactVariables.GetFname() + " City: "+addressBookContactVariables.GetCity()+" State: "+addressBookContactVariables.GetState());
             }
         }
-
+        public void CountPersonByCityOrState(string cityState)
+        {
+            int count = 0;
+            List<AddressBookContactVariables> listValues = ReturnListOfValues();
+            foreach (AddressBookContactVariables addressBookContactVariables in listValues.FindAll(e => (e.GetCity().Equals(cityState) || e.GetState().Equals(cityState))))
+            {
+                count++;
+            }
+            Console.WriteLine("There are " + count + " Persons on given City Or State");
+        }
     }
 }

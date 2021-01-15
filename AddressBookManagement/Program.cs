@@ -20,7 +20,8 @@ namespace AddressBookManagement
                 Console.WriteLine("4: To Delete the existing address");
                 Console.WriteLine("5: Search Address By City Name");
                 Console.WriteLine("6: Search Persons name By City Name Or State Name");
-                Console.WriteLine("7: Terminate the Program");
+                Console.WriteLine("7: Count Persons By City Name Or State Name");
+                Console.WriteLine("8: Terminate the Program");
 
                 int option = Convert.ToInt32(Console.ReadLine());
                 switch (option)
@@ -79,6 +80,11 @@ namespace AddressBookManagement
                         addressBookOperation.ViewPersonByCityOrState(searchCityState);
                         break;
                     case 7:
+                        Console.WriteLine("Enter city name to search Address");
+                        string countByCityOrState = Console.ReadLine();
+                        addressBookOperation.CountPersonByCityOrState(countByCityOrState);
+                        break;
+                    case 8:
                         terminate = true;
                         break;
 
