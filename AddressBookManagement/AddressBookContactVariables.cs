@@ -33,81 +33,14 @@ namespace AddressBookManagement
             return fName;
         }
 
-        //public void SetfName(string fName)
-        //{
-        //    this.fName = fName;
-        //}
-
-        //public string SetlName()
-        //{
-        //    return lName;
-        //}
-
-        //public void SetlName(string lName)
-        //{
-        //    this.lName = lName;
-        //}
-
-        //public string GetAddress()
-        //{
-        //    return Address;
-        //}
-
-        //public void SetAddress(string address)
-        //{
-        //    Address = address;
-        //}
-
         public string GetCity()
         {
             return city;
         }
-
-        //public void SetCity(string city)
-        //{
-        //    this.city = city;
-        //}
-
-        //public string GetState()
-        //{
-        //    return state;
-        //}
-
-        //public void SetState(string state)
-        //{
-        //    this.state = state;
-        //}
-
-        //public string GetEmail()
-        //{
-        //    return email;
-        //}
-
-        //public void SetEmail(string email)
-        //{
-        //    this.email = email;
-        //}
-
-        //public int GetZip()
-        //{
-        //    return zip;
-        //}
-
-        //public void SetZip(int zip)
-        //{
-        //    this.zip = zip;
-        //}
-
-        //public long GetPhone()
-        //{
-        //    return phone;
-        //}
-
-        //public void SetPhone(long phone)
-        //{
-        //    this.phone = phone;
-        //}
-
+        public string GetState()
+        {
+            return state;
+        }
         override
         public string ToString()
         {

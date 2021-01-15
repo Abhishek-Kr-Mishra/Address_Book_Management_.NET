@@ -8,7 +8,7 @@ namespace AddressBookManagement
     class AddressBookOperations
     {
         AddressBookContactVariables addressBookContactVariables;
-        Dictionary<string, AddressBookContactVariables> addressBookContainer = new Dictionary<string, AddressBookContactVariables>();
+        public static Dictionary<string, AddressBookContactVariables> addressBookContainer = new Dictionary<string, AddressBookContactVariables>();
         public Dictionary<string, AddressBookContactVariables> Save(string fname, AddressBookContactVariables addressBookVariables)
         {
             addressBookContainer.Add(fname, addressBookVariables);
@@ -77,13 +77,27 @@ namespace AddressBookManagement
             addressBookContainer.Remove(key);
             Console.WriteLine(key + " Deleted Successfully");
         }
-        public void SearchByCity(string cityName)
+        public static List<AddressBookContactVariables> ReturnListOfValues()
         {
             List<AddressBookContactVariables> values = addressBookContainer.Values.ToList();
+            return values;
+        }
+        public void SearchByCity(string cityName)
+        {
+            List<AddressBookContactVariables> values = ReturnListOfValues();
             foreach (AddressBookContactVariables addressBookContactVariables in values.FindAll(e => (e.GetCity().Equals(cityName))))
             {
                 Console.WriteLine(addressBookContactVariables.ToString());
             }
         }
+        public void ViewPersonByCityOrState(string cityState)
+        {
+            List<AddressBookContactVariables> listValues = ReturnListOfValues();
+            foreach (AddressBookContactVariables addressBookContactVariables in listValues.FindAll(e => (e.GetCity().Equals(cityState) || e.GetState().Equals(cityState))))
+            {
+                Console.WriteLine("Name: "+ addressBookContactVariables.GetFname() + " City: "+addressBookContactVariables.GetCity()+" State: "+addressBookContactVariables.GetState());
+            }
+        }
+
     }
 }
