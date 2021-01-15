@@ -108,5 +108,12 @@ namespace AddressBookManagement
             }
             Console.WriteLine("There are " + count + " Persons on given City Or State");
         }
+        public void SortPersonName()
+        {
+            foreach (KeyValuePair<string, AddressBookContactVariables> author in addressBookContainer.OrderBy(key => key.Value.GetFname()))
+            {
+                Console.WriteLine("Key: {0}, Value: {1}", author.Key, author.Value);
+            }
+        }
     }
 }
