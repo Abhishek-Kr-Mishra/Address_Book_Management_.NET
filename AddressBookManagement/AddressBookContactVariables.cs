@@ -41,6 +41,10 @@ namespace AddressBookManagement
         {
             return state;
         }
+        public int GetZip()
+        {
+            return zip;
+        }
         override
         public string ToString()
         {

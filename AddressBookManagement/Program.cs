@@ -22,7 +22,8 @@ namespace AddressBookManagement
                 Console.WriteLine("6: Search Persons name By City Name Or State Name");
                 Console.WriteLine("7: Count Persons By City Name Or State Name");
                 Console.WriteLine("8: Sort Persons First Name");
-                Console.WriteLine("9: Terminate the Program");
+                Console.WriteLine("9: Sort Person's By Zip");
+                Console.WriteLine("10: Terminate the Program");
 
                 int option = Convert.ToInt32(Console.ReadLine());
                 switch (option)
@@ -89,6 +90,9 @@ namespace AddressBookManagement
                         addressBookOperation.SortPersonName();
                         break;
                     case 9:
+                        addressBookOperation.SortPersonByZip();
+                        break;
+                    case 10:
                         terminate = true;
                         break;
                     default:

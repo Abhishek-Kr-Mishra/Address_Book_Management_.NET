@@ -115,5 +115,12 @@ namespace AddressBookManagement
                 Console.WriteLine("Key: {0}, Value: {1}", author.Key, author.Value);
             }
         }
+        public void SortPersonByZip()
+        {
+            foreach (KeyValuePair<string, AddressBookContactVariables> author in addressBookContainer.OrderBy(key => key.Value.GetZip()))
+            {
+                Console.WriteLine("Key: {0}, Value: {1}", author.Key, author.Value);
+            }
+        }
     }
 }
