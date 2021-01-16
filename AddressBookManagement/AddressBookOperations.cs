@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 
@@ -120,6 +121,32 @@ namespace AddressBookManagement
             foreach (KeyValuePair<string, AddressBookContactVariables> author in addressBookContainer.OrderBy(key => key.Value.GetZip()))
             {
                 Console.WriteLine("Key: {0}, Value: {1}", author.Key, author.Value);
+            }
+        }
+        public void WriteInTextFile(string path)
+        {
+            if(addressBookContainer.Count < 1)
+            {
+                Console.WriteLine("Dictionary is Empty.... First add some value to it");
+            }
+            else
+            {
+                foreach (var addresses in addressBookContainer)
+                {
+                    File.AppendAllText(path, string.Format("{0} {1} {2}", addresses.Key, addresses.Value, Environment.NewLine));
+                    Console.WriteLine("Value Inserted To File");
+                }
+            }
+        }
+        public void ReadFromTextFile(string path)
+        {
+            using (StreamReader streamReader = File.OpenText(path))
+            {
+                string fileData = "";
+                while ((fileData = streamReader.ReadLine()) != null)
+                {
+                    Console.WriteLine(fileData);
+                }
             }
         }
     }
