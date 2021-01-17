@@ -1,5 +1,7 @@
-﻿using System;
+﻿using CsvHelper;
+using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -147,6 +149,48 @@ namespace AddressBookManagement
                 {
                     Console.WriteLine(fileData);
                 }
+            }
+        }
+        public void WriteToCsvFile(string path)
+        {
+            if(addressBookContainer.Count < 1)
+            {
+                Console.WriteLine("Dictionary is Empty Please enter some value to it");
+            }
+            else
+            {
+                foreach (var dictionaryPair in addressBookContainer)
+                {
+                    File.AppendAllText(path, string.Format("{0},{1},{2}", dictionaryPair.Key, dictionaryPair.Value,Environment.NewLine));
+                    Console.WriteLine("Data Inserted in CSV File");
+                }
+            }
+        }
+        public void ReadFromCsvFile(string path)
+        {
+            if (File.Exists(path))
+            {
+                using (StreamReader streamReader = new StreamReader(path))
+                {
+                    List<string> addressList = new List<string>();
+                    while (!streamReader.EndOfStream)
+                    {
+                        var line = streamReader.ReadLine();
+                        var commaSeperatedValues = line.Split(',');
+                        foreach (var values in commaSeperatedValues)
+                        {
+                            addressList.Add(values);
+                        }
+                    }
+                    foreach (var coloumn1 in addressList)
+                    {
+                        Console.WriteLine(coloumn1);
+                    }
+                }
+            }
+            else
+            {
+                Console.WriteLine("File Doesn't Exist");
             }
         }
     }

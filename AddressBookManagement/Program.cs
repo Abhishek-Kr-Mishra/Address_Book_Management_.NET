@@ -14,7 +14,7 @@ namespace AddressBookManagement
             Boolean terminate = false;
             while (terminate != true)
             {
-                Console.WriteLine("1: For add new Address in Text File");
+                Console.WriteLine("1: For add new Address to Dictionary");
                 Console.WriteLine("2: To Print all From Address Dictionary");
                 Console.WriteLine("3: To Update the existing address");
                 Console.WriteLine("4: To Delete the existing address");
@@ -25,9 +25,12 @@ namespace AddressBookManagement
                 Console.WriteLine("9: Sort Person's By Zip");
                 Console.WriteLine("10: Write Data To Text File");
                 Console.WriteLine("11: Read Data From Text File");
-                Console.WriteLine("12: Terminate the Program");
+                Console.WriteLine("12: Write Data To CSV File");
+                Console.WriteLine("13: Read Data From CSV File");
+                Console.WriteLine("14: Terminate the Program");
 
-                string path = @"E:\Fellowship_Projects\Address_Book_Management_.NET\AddressBookFiles\AddressBookText.txt";
+                string textFilePath = @"E:\Fellowship_Projects\Address_Book_Management_.NET\AddressBookManagement\AddressBookFiles\AddressBookText.txt";
+                string csvFilePath = @"E:\Fellowship_Projects\Address_Book_Management_.NET\AddressBookManagement\AddressBookFiles\AddressBookCSV.csv";
                 int option = Convert.ToInt32(Console.ReadLine());
                 switch (option)
                 {
@@ -96,12 +99,18 @@ namespace AddressBookManagement
                         addressBookOperation.SortPersonByZip();
                         break;
                     case 10:
-                        addressBookOperation.WriteInTextFile(path);
+                        addressBookOperation.WriteInTextFile(textFilePath);
                         break;
                     case 11:
-                        addressBookOperation.ReadFromTextFile(path);
+                        addressBookOperation.ReadFromTextFile(textFilePath);
                         break;
                     case 12:
+                        addressBookOperation.WriteToCsvFile(csvFilePath);
+                        break;
+                    case 13:
+                        addressBookOperation.ReadFromCsvFile(csvFilePath);
+                        break;
+                    case 14:
                         terminate = true;
                         break;
                     default:

@@ -1,0 +1,5 @@
+Abhi | AddressBookContactVariables{fName='Abhi', lName='Mishra', Address='Harpur', city='Ballia', state='UP', email=abh@gmail.com',zip=277001, phone=7559171697}
+Adi | AddressBookContactVariables{fName='Adi', lName='Mishra', Address='Quazipura', city='Ballia', state='UP', email=adi@gmail.com',zip=277002, phone=9452513121}
+Golu | AddressBookContactVariables{fName='Golu', lName='Prajapati', Address='Kalidash nagar', city='Ballia', state='UP', email=golu@gmail.com',zip=277002, phone=7398014051}
+Roshan AddressBookContactVariables{fName='Roshan', lName='Prajapati', Address='Gomti Nagar', city='Lucknow', state='UP', email=ros@gmail.com',zip=288007, phone=7894561230} 
+Pankaj AddressBookContactVariables{fName='Pankaj', lName='Tripathi', Address='Harpur', city='Ballia', state='Uttar Pradesh', email=pank@gmail.com',zip=288008, phone=7854963221} 
